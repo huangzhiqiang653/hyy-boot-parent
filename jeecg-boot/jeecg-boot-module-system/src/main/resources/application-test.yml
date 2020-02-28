@@ -8,16 +8,16 @@ server:
     enabled: true
     min-response-size: 1024
     mime-types: application/javascript,application/json,application/xml,text/html,text/xml,text/plain,text/css,image/*
-        
+
 management:
  endpoints:
   web:
    exposure:
     include: metrics,httptrace
-    
+
 spring:
   servlet:
-     multipart: 
+     multipart:
         max-file-size: 10MB
         max-request-size: 10MB
   mail:
@@ -25,10 +25,10 @@ spring:
     username: jeecgos@163.com
     password: ??
     properties:
-      mail: 
-        smtp: 
+      mail:
+        smtp:
           auth: true
-          starttls: 
+          starttls:
             enable: true
             required: true
   ## quartz定时任务,采用数据库方式
@@ -57,7 +57,7 @@ spring:
   # 设置静态文件路径，js,css等
   mvc:
     static-path-pattern: /**
-  resource: 
+  resource:
     static-locations: classpath:/static/,classpath:/public/
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
@@ -70,7 +70,7 @@ spring:
         allow:
       web-stat-filter:
         enabled: true
-    dynamic: 
+    dynamic:
       druid: # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
         # 连接池的配置信息
         # 初始化大小，最小，最大
@@ -94,14 +94,14 @@ spring:
         filters: stat,wall,slf4j
         # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
         connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
-      datasource: 
-          master: 
-            url: jdbc:mysql://127.0.0.1:3306/jeecg-boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false
+      datasource:
+          master:
+            url: jdbc:mysql://192.168.1.224:3306/jeecg-boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false
             username: root
-            password: root
+            password: 123456
             driver-class-name: com.mysql.jdbc.Driver
-          # 多数据源配置   
-          #multi-datasource1: 
+          # 多数据源配置
+          #multi-datasource1:
             #url: jdbc:mysql://localhost:3306/jeecg-boot2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
             #username: root
             #password: root
@@ -109,7 +109,7 @@ spring:
   #redis 配置
   redis:
      database: 0
-     host: 192.168.1.199
+     host: 192.168.1.225
      lettuce:
        pool:
          max-active: 8   #最大连接数据库连接数,设 0 为没有限制
